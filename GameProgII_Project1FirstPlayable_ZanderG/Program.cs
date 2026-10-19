@@ -18,6 +18,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 Map map = new Map();
                 Hud hud = new Hud();
                 CollectablesSpawner collectables = new CollectablesSpawner();
+                QuestClass quest = new QuestClass();
 
                 Player player = new Player(hp: 10, posX: 0, posY: 0, damage: 1, gameMap: map, lastEncounteredEnemy: 0);
                 Enemy enemyR1 = new RandomEnemy(hp: 6, posX: 17, posY: 0, damage: 3, gameMap: map, icon: 'R');
@@ -46,7 +47,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 hud.ChangeEventLog("Game has started", map);
                 while (currentGameLoop)
                 {
-                    hud.PrintHUD("Player's Turn", player, enemies, map);
+                    hud.PrintHUD("Player's Turn", player, enemies, map, quest);
 
                     ConsoleKey playerInput = Console.ReadKey(true).Key;
                     player.Move(playerInput, enemies, collectables.gold.listOfGold, collectables.healthUp.listOfHealthUp, collectables.healthMax.listOfHealthMax, hud);
@@ -54,7 +55,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
 
                     for (int i = 0; i < enemies.Count; i++)
                     {
-                        hud.PrintHUD($"Enemy{i + 1}'s Turn", player, enemies, map);
+                        hud.PrintHUD($"Enemy{i + 1}'s Turn", player, enemies, map, quest);
                         enemies[i].Move(player, enemies, i, collectables.gold.listOfGold, collectables.healthUp.listOfHealthUp, collectables.healthMax.listOfHealthMax, hud);
                     }
                     DrawPlayers(player, enemies);
@@ -72,6 +73,8 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                         else
                         {
                             Console.WriteLine("You win!");
+                            quest.CompleteQuest(2);
+                            Console.WriteLine($"\nQuests \n Quest 1:{quest.questList[0]} - {quest.DisplayQuestStatus(0)} \n Quest 2:{quest.questList[1]} - {quest.DisplayQuestStatus(1)} \n Quest 3:{quest.questList[3]} - {quest.DisplayQuestStatus(3)}");
                         }
                         bool validInput = false;
 

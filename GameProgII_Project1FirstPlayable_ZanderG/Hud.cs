@@ -8,14 +8,15 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
 {
     internal class Hud
     {
-        public void PrintHUD(string hudText, Player player, List<Enemy> enemy, Map map)
+        public void PrintHUD(string hudText, Player player, List<Enemy> enemy, Map map, QuestClass quest)
         {
             //+3 is so there's spacing
-            Console.SetCursorPosition(0, map.mapLength + 3);
+            Console.SetCursorPosition(0, map.mapLength + 2);
             Console.Write("HUD:");
             Console.WriteLine($"\n{hudText}          ");
             Console.WriteLine($"\nPlayer Health: {player._health.health}. Player Damage: {player._damage}          ");
             Console.WriteLine($"\nEnemy{player._lastEncounteredEnemy + 1}'s Health: {enemy[player._lastEncounteredEnemy]._health.health}. Enemy{player._lastEncounteredEnemy + 1}'s Damage: {enemy[player._lastEncounteredEnemy]._damage}          ");
+            Console.WriteLine($"\nQuest 1:{quest.questList[0]} - {quest.DisplayQuestStatus(0)}");
         }
 
         public void ChangeEventLog(string eventLogText, Map map)

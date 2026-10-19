@@ -54,6 +54,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestClass.cs" />
     <Compile Include="QuickEnemy.cs" />
     <Compile Include="RandomEnemy.cs" />
   </ItemGroup>
