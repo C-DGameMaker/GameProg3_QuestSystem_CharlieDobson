@@ -47,6 +47,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 hud.ChangeEventLog("Game has started", map);
                 while (currentGameLoop)
                 {
+                    quest.CheckQuestCompletion(player);
                     hud.PrintHUD("Player's Turn", player, enemies, map, quest);
 
                     ConsoleKey playerInput = Console.ReadKey(true).Key;
@@ -60,7 +61,9 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                     }
                     DrawPlayers(player, enemies);
 
+
                     currentGameLoop = CheckIfGameOver(player, enemies);
+
                     if (playerInput == ConsoleKey.Escape) currentGameLoop = false; //Debug to get to end
 
                     if (!currentGameLoop)
@@ -69,12 +72,13 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                         if (player._health.health == 0)
                         {
                             Console.WriteLine("You lose.");
+                            Console.WriteLine($"Quests \n Quest 1:{quest.questList[0]} - {quest.DisplayQuestStatus(0)} \n Quest 2:{quest.questList[1]} - {quest.DisplayQuestStatus(1)} \n Quest 3:{quest.questList[2]} - {quest.DisplayQuestStatus(2)}");
                         }
                         else
                         {
                             Console.WriteLine("You win!");
                             quest.CompleteQuest(2);
-                            Console.WriteLine($"\nQuests \n Quest 1:{quest.questList[0]} - {quest.DisplayQuestStatus(0)} \n Quest 2:{quest.questList[1]} - {quest.DisplayQuestStatus(1)} \n Quest 3:{quest.questList[3]} - {quest.DisplayQuestStatus(3)}");
+                            Console.WriteLine($"Quests \n Quest 1:{quest.questList[0]} - {quest.DisplayQuestStatus(0)} \n Quest 2:{quest.questList[1]} - {quest.DisplayQuestStatus(1)} \n Quest 3:{quest.questList[2]} - {quest.DisplayQuestStatus(2)}");
                         }
                         bool validInput = false;
 

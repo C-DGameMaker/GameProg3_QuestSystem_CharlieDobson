@@ -17,6 +17,10 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
         public int _damage;
         public int _lastEncounteredEnemy;
 
+        // Quest objectives
+        public int _damagedRaised;
+        public int _totalDamageTaken;
+
         public Player(int hp, int posX, int posY, int damage, Map gameMap, int lastEncounteredEnemy)
         {
             _health = new Health(hp);
@@ -25,6 +29,10 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
             _damage = damage;
             _map = gameMap;
             _lastEncounteredEnemy = lastEncounteredEnemy;
+
+            // Quest objectives
+            _damagedRaised = 0;
+            _totalDamageTaken = 0;
         }
 
         public void Move(ConsoleKey input, List<Enemy> enemy, List<(int, int)> gold, List<(int, int)> healthUp, List<(int, int)> healthMax, Hud hud)
@@ -55,6 +63,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                     if (_map.mapInGame[_posY - 1][_posX] == '=')
                     {
                         _health.TakeDamage(1);
+                        _totalDamageTaken++;
                         //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
@@ -86,6 +95,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                     if (_map.mapInGame[_posY + 1][_posX] == '=')
                     {
                         _health.TakeDamage(1);
+                        _totalDamageTaken++;
                         //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
@@ -117,6 +127,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                     if (_map.mapInGame[_posY][_posX-1] == '=')
                     {
                         _health.TakeDamage(1);
+                        _totalDamageTaken++;
                         //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
@@ -148,6 +159,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                     if (_map.mapInGame[_posY][_posX + 1] == '=')
                     {
                         _health.TakeDamage(1);
+                        _totalDamageTaken++;
                         //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
@@ -163,6 +175,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
             {
                 gold.Remove((Ypos, Xpos));
                 _damage++;
+                _damagedRaised++;
                 //hud.ChangeEventLog("Player damage went up by 1", _map);
                 return true;
             }

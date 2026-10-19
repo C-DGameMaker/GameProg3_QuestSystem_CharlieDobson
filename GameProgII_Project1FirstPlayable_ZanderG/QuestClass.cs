@@ -14,8 +14,16 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
         // Charlie Dobson 
         // A class that runs all the quest logic
 
-        public string[] questList = {"Quest", "Quest", "Win the game" };
+        #region Variables
+
+        // Array/List of all current quests
+        public string[] questList = {"Raise Damage 3 times", "Take 5 hit points of damage", "Win the game" };
+
+        // Array/List of the status of all current quests
         private bool[] questStatus = { false, false, false };
+        #endregion
+
+        #region Methods
 
         // Completes a certain quest
         public void CompleteQuest(int questIndex)
@@ -23,34 +31,34 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
             questStatus[questIndex] = true;
         }
 
+        // Displays the current Status of the quests
         public string DisplayQuestStatus(int questIndex)
         {
             string status = "";
-            if (questStatus[0] == true)
+            if (questStatus[questIndex] == true)
             {
-                status = "Completed";
+                status = "Completed                     ";
             }
             else
             {
-                status = "Incompleted";
+                status = "Incompleted                   ";
             }
 
             return status;
         }
-        // checks to see how many quests you have completed
-        public int CompleteionChecklist()
+
+        // Checks the completeion of each quest and updates accordingly
+        public void CheckQuestCompletion(Player player)
         {
-            int completedQuests = 0;
-
-            for(int i = 0; i < questStatus.Length; i ++)
+            if(player._damagedRaised >= 3)
             {
-                if (questStatus[i] == true)
-                {
-                    completedQuests++;
-                }
+                CompleteQuest(0);
             }
-
-            return completedQuests;
+            if(player._totalDamageTaken >= 1)
+            {
+                CompleteQuest(1);
+            }
         }
+        #endregion
     }
 }

@@ -43,6 +43,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (player._posX == _posX - 1 && player._posY == _posY)
                 {
                     player._health.TakeDamage(_damage);
+                    player._totalDamageTaken++;
                     player._lastEncounteredEnemy = enemyTurn;
                     //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
@@ -80,6 +81,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (player._posX == _posX + 1 && player._posY == _posY)
                 {
                     player._health.TakeDamage(_damage);
+                    player._totalDamageTaken++;
                     player._lastEncounteredEnemy = enemyTurn;
                     //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
@@ -117,6 +119,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (player._posX == _posX && player._posY == _posY - 1)
                 {
                     player._health.TakeDamage(_damage);
+                    player._totalDamageTaken++;
                     player._lastEncounteredEnemy = enemyTurn;
                     //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
@@ -154,6 +157,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (player._posX == _posX && player._posY == _posY + 1)
                 {
                     player._health.TakeDamage(_damage);
+                    player._totalDamageTaken++;
                     player._lastEncounteredEnemy = enemyTurn;
                     //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
