@@ -44,7 +44,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 {
                     player._health.TakeDamage(_damage);
                     player._lastEncounteredEnemy = enemyTurn;
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
                 }
                 for (int i = 0; i < enemy.Count; i++)
@@ -63,12 +63,12 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (_map.mapInGame[_posY][_posX - 1] == '+')
                 {
                     _health.Heal(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
                 }
                 if (_map.mapInGame[_posY][_posX - 1] == '=')
                 {
                     _health.TakeDamage(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
                 }
                 RefreshTileBehind();
                 _posX--;
@@ -81,7 +81,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 {
                     player._health.TakeDamage(_damage);
                     player._lastEncounteredEnemy = enemyTurn;
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
                 }
                 for (int i = 0; i < enemy.Count; i++)
@@ -100,12 +100,12 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (_map.mapInGame[_posY][_posX + 1] == '+')
                 {
                     _health.Heal(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
                 }
                 if (_map.mapInGame[_posY][_posX + 1] == '=')
                 {
                     _health.TakeDamage(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
                 }
                 RefreshTileBehind();
                 _posX++;
@@ -118,7 +118,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 {
                     player._health.TakeDamage(_damage);
                     player._lastEncounteredEnemy = enemyTurn;
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
                 }
                 for (int i = 0; i < enemy.Count; i++)
@@ -137,12 +137,12 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (_map.mapInGame[_posY - 1][_posX] == '+')
                 {
                     _health.Heal(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
                 }
                 if (_map.mapInGame[_posY - 1][_posX] == '=')
                 {
                     _health.TakeDamage(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
                 }
                 RefreshTileBehind();
                 _posY--;
@@ -155,7 +155,7 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 {
                     player._health.TakeDamage(_damage);
                     player._lastEncounteredEnemy = enemyTurn;
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} attacked Player for {_damage} damage", _map);
                     return;
                 }
                 for (int i = 0; i < enemy.Count; i++)
@@ -174,12 +174,12 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                 if (_map.mapInGame[_posY + 1][_posX] == '+')
                 {
                     _health.Heal(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} healed 1 health point", _map);
                 }
                 if (_map.mapInGame[_posY + 1][_posX] == '=')
                 {
                     _health.TakeDamage(1);
-                    hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
+                    //hud.ChangeEventLog($"Enemy{enemyTurn + 1} took 1 damage from Lava", _map);
                 }
                 RefreshTileBehind();
                 _posY++;
@@ -192,21 +192,21 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
             {
                 gold.Remove((Ypos, Xpos));
                 _damage++;
-                hud.ChangeEventLog($"Enemy{currentEnemy + 1} damage went up by 1", _map);
+                //hud.ChangeEventLog($"Enemy{currentEnemy + 1} damage went up by 1", _map);
                 return true;
             }
             if (healthUp.Contains((Ypos, Xpos)))
             {
                 healthUp.Remove((Ypos, Xpos));
                 _health.Heal(3);
-                hud.ChangeEventLog($"Enemy{currentEnemy + 1} healed 3 health points", _map);
+                //hud.ChangeEventLog($"Enemy{currentEnemy + 1} healed 3 health points", _map);
                 return true;
             }
             if (healthMax.Contains((Ypos, Xpos)))
             {
                 healthMax.Remove((Ypos, Xpos));
                 _health.IncreaseMaxHealth();
-                hud.ChangeEventLog($"Enemy{currentEnemy + 1}'s max health increased + full heal", _map);
+                //hud.ChangeEventLog($"Enemy{currentEnemy + 1}'s max health increased + full heal", _map);
                 return true;
             }
             return false;

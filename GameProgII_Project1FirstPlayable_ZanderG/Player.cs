@@ -43,19 +43,19 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                         {
                             enemy[i]._health.TakeDamage(_damage);
                             _lastEncounteredEnemy = i;
-                            hud.ChangeEventLog($"Player attacked enemy{i+1} for {_damage} damage", _map);
+                            //hud.ChangeEventLog($"Player attacked enemy{i+1} for {_damage} damage", _map);
                             return; //return instead of break as break only stops the for loop
                         }
                     }
                     if(_map.mapInGame[_posY - 1][_posX] == '+')
                     {
                         _health.Heal(1);
-                        hud.ChangeEventLog("Player healed 1 health", _map);
+                        //hud.ChangeEventLog("Player healed 1 health", _map);
                     }
                     if (_map.mapInGame[_posY - 1][_posX] == '=')
                     {
                         _health.TakeDamage(1);
-                        hud.ChangeEventLog("Player took 1 damage from Lava", _map);
+                        //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
                     _posY--;
@@ -74,19 +74,19 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                         {
                             enemy[i]._health.TakeDamage(_damage);
                             _lastEncounteredEnemy = i;
-                            hud.ChangeEventLog($"Player attacked Enemy{i + 1} for {_damage} damage", _map);
+                            //hud.ChangeEventLog($"Player attacked Enemy{i + 1} for {_damage} damage", _map);
                             return;
                         }
                     }
                     if (_map.mapInGame[_posY + 1][_posX] == '+') 
                     {
                         _health.Heal(1);
-                        hud.ChangeEventLog("Player healed 1 health", _map);
+                        //hud.ChangeEventLog("Player healed 1 health", _map);
                     }
                     if (_map.mapInGame[_posY + 1][_posX] == '=')
                     {
                         _health.TakeDamage(1);
-                        hud.ChangeEventLog("Player took 1 damage from Lava", _map);
+                        //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
                     _posY++;
@@ -105,19 +105,19 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                         {
                             enemy[i]._health.TakeDamage(_damage);
                             _lastEncounteredEnemy = i;
-                            hud.ChangeEventLog($"Player attacked Enemy{i + 1} for {_damage} damage", _map);
+                            //hud.ChangeEventLog($"Player attacked Enemy{i + 1} for {_damage} damage", _map);
                             return;
                         }
                     }
                     if (_map.mapInGame[_posY][_posX-1] == '+')
                     {
                         _health.Heal(1);
-                        hud.ChangeEventLog("Player healed 1 health", _map);
+                        //hud.ChangeEventLog("Player healed 1 health", _map);
                     }
                     if (_map.mapInGame[_posY][_posX-1] == '=')
                     {
                         _health.TakeDamage(1);
-                        hud.ChangeEventLog("Player took 1 damage from Lava", _map);
+                        //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
                     _posX--;
@@ -136,19 +136,19 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
                         {
                             enemy[i]._health.TakeDamage(_damage);
                             _lastEncounteredEnemy = i;
-                            hud.ChangeEventLog($"Player attacked Enemy{i + 1} for {_damage} damage", _map);
+                            //hud.ChangeEventLog($"Player attacked Enemy{i + 1} for {_damage} damage", _map);
                             return;
                         }
                     }
                     if (_map.mapInGame[_posY][_posX + 1] == '+')
                     {
                         _health.Heal(1);
-                        hud.ChangeEventLog("Player healed 1 health", _map);
+                        //hud.ChangeEventLog("Player healed 1 health", _map);
                     }
                     if (_map.mapInGame[_posY][_posX + 1] == '=')
                     {
                         _health.TakeDamage(1);
-                        hud.ChangeEventLog("Player took 1 damage from Lava", _map);
+                        //hud.ChangeEventLog("Player took 1 damage from Lava", _map);
                     }
                     RefreshTileBehind();
                     _posX++;
@@ -163,21 +163,21 @@ namespace GameProgII_Project1FirstPlayable_ZanderG
             {
                 gold.Remove((Ypos, Xpos));
                 _damage++;
-                hud.ChangeEventLog("Player damage went up by 1", _map);
+                //hud.ChangeEventLog("Player damage went up by 1", _map);
                 return true;
             }
             if (healthUp.Contains((Ypos, Xpos)))
             {
                 healthUp.Remove((Ypos, Xpos));
                 _health.Heal(3);
-                hud.ChangeEventLog("Player healed 3 health points", _map);
+                //hud.ChangeEventLog("Player healed 3 health points", _map);
                 return true;
             }
             if (healthMax.Contains((Ypos, Xpos)))
             {
                 healthMax.Remove((Ypos, Xpos));
                 _health.IncreaseMaxHealth();
-                hud.ChangeEventLog("Player's max health increased + full heal", _map);
+                //hud.ChangeEventLog("Player's max health increased + full heal", _map);
                 return true;
             }
             return false;
